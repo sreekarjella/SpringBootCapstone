@@ -1,0 +1,42 @@
+version: '3'
+services:
+    eureka:
+        image: eureka
+        restart: on-failure
+        ports: 
+            - 4000:4000
+    gateway: 
+        image: gateway
+        restart: on-failure
+        ports: 
+            - 8000:8000
+        depends_on: 
+            - eureka
+    order:
+        image: order
+        restart: on-failure
+        ports: 
+            - 8081:8081
+        depends_on: 
+            - eureka
+    search: 
+        image: search
+        restart: on-failure
+        ports: 
+            - 8082:8082
+        depends_on: 
+            - eureka
+    customer:
+        image: customer
+        restart: on-failure
+        ports: 
+            - 8083:8083
+        depends_on: 
+            - eureka
+    review:
+        image: review
+        restart: on-failure
+        ports: 
+            - 8084:8084
+        depends_on: 
+            - eureka

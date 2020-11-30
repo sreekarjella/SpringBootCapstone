@@ -1,0 +1,20 @@
+Installing JDK
+
+	sudo apt update
+	sudo apt install openjdk-8-jdk
+	java -version
+
+Installing Maven
+	
+	sudo apt update
+	sudo apt install maven
+	mvn -version
+
+Installing MySQL(Docker)
+	
+	docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql:8.0 (Will pull MySQL 8.0 image from docker hub and run it)
+	docker exec -it mysql mysql -uroot -proot (To access the sql command line tool. Use 'quit' to exit sql command line tool)
+
+Building Spring Boot Applications
+	
+	mvn clean package -Dmaven.test.skip=true (Need to be in the project root directory)

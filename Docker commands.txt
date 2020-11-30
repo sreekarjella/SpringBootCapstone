@@ -1,0 +1,24 @@
+config		5000
+eureka		4000
+gateway		8000
+order		8081
+search		8082
+customer	8083
+review		8084
+
+mvn clean package -Dmaven.test.skip=true
+
+config		built
+eureka		built
+gateway		built
+order		built
+search		built
+review		built
+customer	built
+
+docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql:8.0
+docker exec -it mysql mysql -uroot -proot
+
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+
