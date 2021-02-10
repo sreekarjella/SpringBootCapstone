@@ -25,5 +25,5 @@ public class OrderingserviceApplication {
 
 		return registrationBean;
 	}
-
+	
 }

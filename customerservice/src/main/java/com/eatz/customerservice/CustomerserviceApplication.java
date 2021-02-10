@@ -23,7 +23,7 @@ public class CustomerserviceApplication {
 	public PasswordEncoder encoder() {
 		return new BCryptPasswordEncoder();
 	}
-
+	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Bean
 	public FilterRegistrationBean jwtFilter() {
@@ -33,10 +33,10 @@ public class CustomerserviceApplication {
 
 		return registrationBean;
 	}
-
+	
 	@Bean
-	public ObjectMapper objectMapper() {
+	public ObjectMapper getObjMapper() {
 		return new ObjectMapper();
 	}
-	
+
 }

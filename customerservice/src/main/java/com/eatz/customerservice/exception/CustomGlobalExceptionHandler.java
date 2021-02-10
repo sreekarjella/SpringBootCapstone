@@ -11,29 +11,27 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
 
 	@ExceptionHandler(UnauthorizedException.class)
 	public ResponseEntity<Object> exception(UnauthorizedException exception) {
-
-		return new ResponseEntity<>("Invalid Credentials", HttpStatus.UNAUTHORIZED);
+		return new ResponseEntity<>(exception.getMessage(), HttpStatus.UNAUTHORIZED);
 	}
 
 	@ExceptionHandler(InvalidTokenException.class)
-	ResponseEntity<Object> exception(InvalidTokenException exception) {
-
+	public ResponseEntity<Object> exception(InvalidTokenException exception) {
 		return new ResponseEntity<>(exception.getMessage(), HttpStatus.BAD_REQUEST);
 	}
 
 	@ExceptionHandler(CustomerException.class)
-	ResponseEntity<Object> exception(CustomerException exception) {
+	public ResponseEntity<Object> exception(CustomerException exception) {
 		return new ResponseEntity<>(exception.getMessage(), HttpStatus.FORBIDDEN);
 	}
 
 	@ExceptionHandler(CustomerNotFoundException.class)
-	ResponseEntity<Object> exception(CustomerNotFoundException exception) {
+	public ResponseEntity<Object> exception(CustomerNotFoundException exception) {
 		return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
 	}
 	
+	
 	@ExceptionHandler(Exception.class)
-	ResponseEntity<Object> exception(Exception exception) {
-
+	public ResponseEntity<Object> exception(Exception exception) {
 		return new ResponseEntity<>(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 }
